@@ -23,9 +23,19 @@ func main() {
 	// Disable printing of the time, source file, and line number
 	log.SetFlags(0)
 
+	// A slice of names.
+	names := []string{"Gladys", "Samantha", "Darrin"}
+	// Request greeting messages for the names.
+	messages, err := greetings.Hellos(names)
+
+	// If an error occurs, log it and exit the program
+	if err != nil {
+		log.Fatalln(err)
+	}
+
 	// Call the Hello function from the greetings package
 	// passing an empty string as the name parameter
-	message, err := greetings.Hello("")
+	message, err := greetings.Hello("Najma")
 
 	// If an error occurs, log it and exit the program
 	if err != nil {
@@ -34,4 +44,5 @@ func main() {
 
 	// Print the greeting message returned by the Hello function
 	fmt.Println(message)
+	fmt.Println(messages)
 }
